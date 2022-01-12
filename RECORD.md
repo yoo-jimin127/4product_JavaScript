@@ -74,3 +74,54 @@
         - 키보드가 눌리는 이벤트 : ```onkeydown="func()"```
 
 - 200자를 넘길 경우 더 이상 입력되지 않고 잘리도록 -> ```.substring()```    ex) ```.substring(0, 200)``` : 0 이상, 200 미만
+
+------
+
+### javascript ver 미니 스타크래프트
+
+### jquery
+- ```document.getElementById('content').value;``` == ```$('#content').val();```
+- jquery 장점
+    1. 간결한 문법
+    2. 편리한 API
+    3. 크로스 브라우징
+- ```$(선택자).행위;``` : [https://code.jquery.com/](https://code.jquery.com/)에서 minified code copy & paste
+    - ```console.log($('#content').val());```통해 console 출력 가능
+
+- jQuery 이벤트 처리
+    - ```<button id="click">클릭</button>``` == ```$('#click').click(hello);```
+    - **주의**. ```$('#click').click(logfunc);``` : 함수명만 입력, logfunc() X -> logfunc O
+
+### 익명함수
+- 이름이 없는 함수
+- ```$('#click').click(function() { console.log('hello');})```와 같이 함수의 이름 없이 jQuery 명령어 내부에서 함수 기능 정의 및 호출
+
+### fadeIn() 함수
+- ```.fadeIn()```을 통해 이미지 또는 태그의 내용이 나타나도록 함.
+    - option으로 duration, animation을 넣을 수 있음
+
+### animate() 함수
+- ```.animate(properties, [duration], [easing], [complete])```: fadeIn()으로 나타난 요소가 어떻게 동작할지를 정해줌
+```
+    $('#spit').animate({left: '+=250'});
+```
+    - css 속성을 추가해주어 animation을 추가해줌
+
+### animation 없이 해당 요소의 css 속성을 넣어주고자 할 때
+- ```fadeOut()```으로 보이지 않게 만든 요소의 css 속성을 바꿔주기 위해서 ```.css()``` 사용
+- ex) ```$('#spit').css({left: '150px'});``` : left 값을 초기화해줌으로써 매번 같은 자리에서 발사되도록 함
+
+### jquery를 사용해 태그 안의 text를 변경해주고자 할 때
+- ```$('#hp').text('HP : ' + hp);``` : .text() 함수를 사용하여 text 내부의 값을 변경해줌 (자동 형변환 가능)
+
+### callback 함수
+```
+    $('#spit').fadeOut(function() {
+        hp = hp -1;
+        $('#hp').text('HP : ' + hp); //침이 fadeOut된 다음 hp의 값이 업데이트될 수 있도록 생성한 익명함수
+
+        if (hp == 0) { //hp 값이 0이 될 떄 bunker가 사라지도록 하는 작업
+            $('#bunker').fadeOut();
+        }
+```
+- 특정 동작 이후 수행되는 명령어를 선언하고자 할 때, 익명함수를 사용해 callback 함수를 구현할 수 있음
