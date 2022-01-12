@@ -125,3 +125,24 @@
         }
 ```
 - 특정 동작 이후 수행되는 명령어를 선언하고자 할 때, 익명함수를 사용해 callback 함수를 구현할 수 있음
+
+------
+
+### 기념일 계산기
+
+### 객체(Object)
+- 여러 값을 담는 자료형
+```
+    var person = {
+        name: 'namename',
+        age: 23
+    }
+```
+    - 키 : 속성 값
+    - 호출: ```객체.키;```를 통해 해당 값을 가져옴
+
+- 내장 객체 : ex) Date 객체
+- Date 객체 사용 방법: ```var now = new Date();``` -> ```now.getMonth()```, ```now.getDate()``` 등
+    - [Date 객체 사용 예제](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+- ```var day = Math.floor(timeDiff / (1000 * 60 * 60 * 24) + 1);``` 실수형의 데이터에서 소수점을 없애주는 작업 : Math 라이브러리의 floor 함수 사용
