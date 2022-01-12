@@ -30,6 +30,8 @@
         - bool 자료형 : ```true```, ```false```
         - ```typeof 변수명``` : typeof 명령어 사용 시 해당 변수에 할당된 값의 자료형을 확인할 수 있음
 
+------
+
 ### 로또 번호 추첨기능 구현
 - ```Math.random();``` : 0 이상 ~ 1 미만 실수(float)로 임의의 수 생성
     - ```Math.random() * 45 + 1;``` : 1 이상 46 미만 실수 생성
@@ -54,3 +56,21 @@
         - why? : 단순 sort() : 사전 순 정렬, 1 ~ 9의 앞자리수 순서대로 정렬 진행
         - sol. ```.sort((a, b) => a - b)``` : 익명함수를 사용하여 숫자를 오름차순으로 정렬 가능
             - 내림차순 : ```.sort((a, b) => b - a)```
+
+------
+
+### 자기소개서 글자수 계산기
+- DOM : Document Object Model - 웹 화면의 HTML 코드에 쉽게 접근할 수 있도록 하는 코드
+- ```document``` : DOM의 진입점 역할 -> ```document.getElementById('idname');``` : 특정 아이디값으로 태그를 불러올 수 있음
+    - ```document.getElementById('idname').value;``` : 태그 안의 값만 가져옴
+    - ```document.getElementById('idname).innerHTML``` : 태그 안의 값만 가져옴
+
+- 자동 형변환을 통해 문자열과 숫자를 함께 출력할 수 있음
+    - ```document.getElementById('count').innerHTML = '(' + content.length + '/200)';```
+
+- 함수 사용 : ```function 함수명() { 명령어 모음 };```
+- 키보드 누를 때마다(이벤트) 글자 수를 세도록(이벤트핸들링) -> Event 추가, Event Handling
+    - ```<textarea class="form-control" rows="3" id="introduce" onkeydown="counter()">안녕하세요 저는 유지민입니다.</textarea>```
+        - 키보드가 눌리는 이벤트 : ```onkeydown="func()"```
+
+- 200자를 넘길 경우 더 이상 입력되지 않고 잘리도록 -> ```.substring()```    ex) ```.substring(0, 200)``` : 0 이상, 200 미만
